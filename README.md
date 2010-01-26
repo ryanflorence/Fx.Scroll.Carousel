@@ -8,6 +8,8 @@ Extends Fx.Scroll to provide carousel functionality.
 How to use
 ----------
 
+*HTML*
+
     #HTML
     <div id="carousel">
       <div class="inner" style="width: 2000px">
@@ -19,6 +21,8 @@ How to use
         <div>6</div>
       </div>
     </div>
+
+*CSS*
 
     #CSS
     div#carousel {
@@ -36,6 +40,8 @@ How to use
       width: 100px;
       height: 200px;
     }
+
+*JS*
 
     #JS
     myCarousel = new Fx.Scroll.Carousel('carousel',{
