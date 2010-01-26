@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Fx.Scroll.Carousel Demo</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools.js"></script>
+	<script type="text/javascript" charset="utf-8" src="Fx.Scroll.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../Source/Fx.Scroll.Carousel.js"></script>
+	<script type="text/javascript" charset="utf-8" src="demo.js"></script>
+</head>
+
+<body>
+	<h1>Fx.Scroll.Carousel</h1>
+	<div id="horizontal" class="carousel">
+		<div class="inner">
+			<p class="red">1</p>
+			<p class="green">2</p>
+			<p class="blue">3</p>
+			<p class="red">4</p>
+			<p class="green">5</p>
+			<p class="blue">6</p>			
+			<p class="red">7</p>
+			<p class="green">8</p>
+			<p class="blue">9</p>
+			<p class="red">10</p>
+			<p class="green">11</p>
+			<p class="blue">12</p>
+		</div>
+	</div>
+
+	<div id="vertical" class="carousel">
+		<p class="red">1</p>
+		<p class="green">2</p>
+		<p class="blue">3</p>
+		<p class="red">4</p>
+		<p class="green">5</p>
+		<p class="blue">6</p>
+	</div>
+	
+	
+	<h2>Events</h2>
+	<p>
+		<span id="onNext">next</span>
+		<span id="onPrevious">previous</span>
+		<span id="onLoop">loop</span>
+		<span id="onNextLoop">nextLoop</span>
+		<span id="onPreviousLoop">previousLoop</span>
+	</p>
+
+	<h2>Methods</h2>
+	<p>
+		<button id="next">toNext</button>
+		<button id="previous">toPrevious</button>
+	</p>
+	
+	<h2>Options</h2>
+	<p>
+		loopOnScrollEnd: <select id="loopOnScrollEnd">
+			<option selected="selected">true</option>
+			<option>false</option>
+		</select>
+	</p>
+
+	<p id="links">
+		Fx.Scroll.Carousel
+		<a href="http://moodocs.net/rpflo/mootools-rpflo/Fx.Scroll.Carousel">@moodocs.net</a> | 
+		<a href="http://github.com/rpflorence/Fx.Scroll.Carousel">@github</a>
+	</p>
+
+</body>
+</html>
