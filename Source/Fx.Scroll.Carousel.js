@@ -21,21 +21,21 @@ provides: [Fx.Scroll.Carousel]
 
 
 Fx.Scroll.Carousel = new Class({
-	
+
 	Extends: Fx.Scroll,
-	
+
 		options: {
 			mode: 'horizontal',
 			childSelector: false,
 			loopOnScrollEnd: true
 		},
-	
+
 	initialize: function(element, options){
 		this.parent(element, options);
 		this.cacheElements();
 		this.currentIndex = 0;
 	},
-	
+
 	cacheElements: function(){
 		var cs = this.options.childSelector;
 		if(cs){
@@ -48,23 +48,36 @@ Fx.Scroll.Carousel = new Class({
 		this.elements = els;
 		return this;
 	},
-	
+
+	toIndex: function(index){
+		if(this.checkLink() || index >= this.elements.length) return this;
+		this.currentIndex = index;
+		this.toElement(this.elements[this.currentIndex]);
+		return this;
+	},
+
+	toFirst: function(){
+		return this.toIndex(0);
+	},
+
+	toLast: function(){
+		return this.toIndex(this.elements.length - 1);
+	},
+
 	toNext: function(){
 		if(this.checkLink()) return this;
-		this.currentIndex = this.getNextIndex();
-		this.toElement(this.elements[this.currentIndex]);
+		this.toIndex(this.getNextIndex())
 		this.fireEvent('next');
 		return this;
 	},
-	
+
 	toPrevious: function(){
 		if(this.checkLink()) return this;
-		this.currentIndex = this.getPreviousIndex();
-		this.toElement(this.elements[this.currentIndex]);
+		this.toIndex(this.getPreviousIndex())
 		this.fireEvent('previous');
 		return this;
 	},
-	
+
 	getNextIndex: function(){
 		this.currentIndex++;
 		if(this.currentIndex == this.elements.length || this.checkScroll()){
@@ -75,7 +88,7 @@ Fx.Scroll.Carousel = new Class({
 			return this.currentIndex;
 		};
 	},
-	
+
 	getPreviousIndex: function(){
 		this.currentIndex--;
 		var check = this.checkScroll();
@@ -87,18 +100,18 @@ Fx.Scroll.Carousel = new Class({
 			return this.currentIndex;
 		}
 	},
-	
+
 	getOffsetIndex: function(){
 		var visible = (this.options.mode == 'horizontal') ? 
 			this.element.getStyle('width').toInt() / this.elements[0].getStyle('width').toInt() :
 			this.element.getStyle('height').toInt() / this.elements[0].getStyle('height').toInt();
 		return this.currentIndex + 1 - visible;
 	},
-	
+
 	checkLink: function(){
 		return (this.timer && this.options.link == 'ignore');
 	},
-	
+
 	checkScroll: function(){
 		if(!this.options.loopOnScrollEnd) return false;
 		if(this.options.mode == 'horizontal'){
@@ -110,9 +123,9 @@ Fx.Scroll.Carousel = new Class({
 		}
 		return (scroll == total);
 	},
-	
+
 	getCurrent: function(){
 		return this.elements[this.currentIndex];
 	}
-	
+
 });
