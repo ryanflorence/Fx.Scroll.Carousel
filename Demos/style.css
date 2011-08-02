@@ -83,4 +83,8 @@ a:visited, a:hover {
 	background: #43aa38;
 }
 
+#last + input {
+	width: 45px
+}
+
 /* @end */
